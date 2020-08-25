@@ -50,14 +50,103 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
  * use Authorized check all menu item
  */
 
+function mockMenuData() {
+  return [
+    // {
+    //   path: '/',
+    //   redirect: '/welcome',
+    // },
+    {
+      path: '/welcome',
+      name: 'welcome',
+      icon: 'smile',
+      key:'/welcome',
+      component: './Welcome',
+    },
+    {
+      path: '/',
+      name: 'admin',
+      icon: 'crown',
+      component: './Admin',
+      authority: ['admin'],
+      routes: [
+        {
+          path: '/admin/sub-page',
+          key: '/admin/sub-page',
+          name: 'sub-page',
+          icon: 'smile',
+          component: './Welcome',
+          authority: ['admin'],
+        },
+        {
+          path: '/demo1/demo1',
+          key: '/demo1/demo1',
+          name: 'demo1/demo1',
+          icon: 'smile',
+          component: './demo1/demo1',
+          authority: ['admin'],
+        },
+      ],
+    },
+    {
+      path: '/',
+      name: 'admin',
+      icon: '',
+      component: './Admin',
+      authority: ['admin'],
+      routes: [
+        {
+          path: '/demo4/demo4',
+          key: '/demo4/demo4',
+          name: '/demo4/demo4',
+          icon: 'smile',
+          component: './demo4/demo4',
+          authority: ['admin'],
+        },
+        {
+          path: '/demo3/demo3',
+          key: '/demo3/demo3',
+          name: '/demo3/demo3',
+          icon: 'smile',
+          component: './demo3/demo3',
+          authority: ['admin'],
+        },
+      ],
+    },
+    // {
+    //   path: '/admin/sub-page',
+    //   name: 'sub-page',
+    //   icon: 'smile',
+    //   component: './Welcome',
+    //   authority: ['admin'],
+    // },
+    {
+      name: 'list.table-list',
+      icon: 'table',
+      path: '/list',
+      key: '/list',
+      component: './ListTableList',
+    },
+    // {
+    //   component: './404',
+    // },
+  ]
+}
+
 const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
-  menuList.map((item) => {
+ {
+  //  console.log(menuList);
+   
+   return  menuList.map((item) => {
+    //  console.log(item);
+     
     const localItem = {
       ...item,
       children: item.children ? menuDataRender(item.children) : undefined,
     };
     return Authorized.check(item.authority, localItem, null) as MenuDataItem;
   });
+ }
 
 const defaultFooterDom = (
   <DefaultFooter
@@ -130,6 +219,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       onCollapse={handleMenuCollapse}
       onMenuHeaderClick={() => history.push('/')}
       menuItemRender={(menuItemProps, defaultDom) => {
+        // if (menuItemProps.path === '/admin/sub-page') 
+          // console.log(menuItemProps, defaultDom)
         if (menuItemProps.isUrl || !menuItemProps.path) {
           return defaultDom;
         }
@@ -151,7 +242,22 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         );
       }}
       footerRender={() => defaultFooterDom}
-      menuDataRender={menuDataRender}
+      // menuDataRender={menuDataRender}
+      menuDataRender={() => {
+        function render(menuList: any) {
+          return  menuList.map((item: any) => {
+           const localItem = {
+             ...item,
+             children: item.routes ? menuDataRender(item.routes) : undefined,
+           };
+           return Authorized.check(item.authority, localItem, null) as MenuDataItem;
+         });
+        }
+        const menu = render(mockMenuData())
+        console.log(menu);
+        
+        return menu
+      }}
       rightContentRender={() => <RightContent />}
       {...props}
       {...settings}
