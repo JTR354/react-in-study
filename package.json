@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/JTR354/react-in-study/issues"
   },
-  "homepage": "https://github.com/JTR354/react-in-study#readme"
+  "homepage": "https://github.com/JTR354/react-in-study#readme",
+  "dependencies": {
+    "redux": "^4.0.5"
+  }
 }
