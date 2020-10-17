@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import FilterableCategoryRow from './pages/FilterableProductTable'
+import EventDemo from './pages/EventDemo/EventDemo'
 /*
 function App() {
   return (
@@ -36,6 +37,7 @@ function App () {
   return (
     <div>
       <FilterableCategoryRow products={productions}></FilterableCategoryRow>
+      <EventDemo></EventDemo>
     </div>
   )
 }

@@ -11,7 +11,8 @@ export default (props) => {
     <div className="content">
       <SearchBar value={inStockOnly} onChange={() => {
         setInStockOnly(bool => !bool)
-      }} filterText={filterText} onFilterText={(text) => {
+      }} filterText={filterText} onFilterText={(text, event) => {
+        console.log('event', event)
         setFilterText(text)
       }}></SearchBar>
       <ProductTable products={products} inStockOnly={inStockOnly} filterText={filterText}></ProductTable>

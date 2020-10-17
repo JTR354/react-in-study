@@ -2,7 +2,6 @@ import React from 'react'
 
 export default (props) => {
   const {value, onChange, filterText, onFilterText} = props
-  console.log(value, 1e9)
   return (
     <div>
       <input type="text" value={filterText} onChange={(e) => {
