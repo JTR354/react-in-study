@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/JTR354/react-in-study#readme",
   "dependencies": {
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "redux-thunk": "^2.3.0"
   }
 }

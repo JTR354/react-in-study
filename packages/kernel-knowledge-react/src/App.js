@@ -10,7 +10,11 @@ import './App.css';
 // import ProtalsDemo from './components/advanced/PortalsDemo'
 // import AsyncDemo from './components/advanced/AsyncDemo'
 // import ModifyDemo from './components/advanced/ModifyDemo'
-import HocDemo from './components/advanced/HocDemo'
+// import HocDemo from './components/advanced/HocDemo'
+// import ReduxDemo from './components/redux/ReduxDemo'
+// import ReduxReactDemo from './components/redux/ReduxReactDemo'
+// import TodoListDemo from './components/redux/TodoListDemo'
+import SagaReduxDemo from './components/redux/SagaReduxDemo'
 
 function App() {
   return (
@@ -24,7 +28,11 @@ function App() {
       {/* <ProtalsDemo></ProtalsDemo> */}
       {/* <AsyncDemo></AsyncDemo> */}
       {/* <ModifyDemo></ModifyDemo> */}
-      <HocDemo></HocDemo>
+      {/* <HocDemo></HocDemo> */}
+      {/* <ReduxDemo></ReduxDemo> */}
+      {/* <ReduxReactDemo></ReduxReactDemo> */}
+      {/* <TodoListDemo></TodoListDemo> */}
+      <SagaReduxDemo></SagaReduxDemo>
     </div>
   );
 }
