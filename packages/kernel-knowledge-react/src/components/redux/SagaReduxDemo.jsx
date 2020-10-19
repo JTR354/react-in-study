@@ -1,44 +1,65 @@
 import React from 'react'
-import {createStore, combineReducers, applyMiddleware} from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import {Provider, connect} from 'react-redux'
-import createSagaMiddleWare from 'redux-saga'
-import mySaga from './mySaga'
+import rootSaga from './sagas'
 
-const sagaMdiddle = createSagaMiddleWare()
 
-const user = (state = [], action) => {
-    switch(action.type) {
-        case 'GET_DATA':
-            return state.concat(action.payload)
+const reducer = (state = 0, action) => {
+    // console.log(action, '')
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1
+        case 'DECREMENT':
+            return state  - 1
         default:
             return state
     }
 }
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(rootSaga)
 
-
-const rootReducers = combineReducers({user})
-const store = createStore(rootReducers, applyMiddleware(sagaMdiddle))
-sagaMdiddle.run(mySaga)
+// const action = type => store.dispatch({type})
 
 export default () => {
     return <Provider store={store}>
-        <h1>SagaDemo</h1>
-        <Top></Top>
+        <h1>Saga Redux Demo</h1>
+        <Counter />,
     </Provider>
 }
+
+
+
+const CounterCom = ({ value, onIncrement, onDecrement, onIncrementAsync }) =>
+  <div>
+    <button onClick={onIncrementAsync}>
+      Increment after 1 second
+    </button>
+    {' '}
+    <button onClick={onIncrement}>
+      Increment
+    </button>
+    {' '}
+    <button onClick={onDecrement}>
+      Decrement
+    </button>
+    <hr />
+    <div>
+      Clicked: {value} times
+    </div>
+  </div>
 const mapStateToProps = state => {
-    console.log(state);
-    return state
+    return {value: state}
 }
+
+
 const mapDispatchToProps = dispatch => {
+    const action = type => dispatch({type})
     return {
-        add: () => dispatch({type: 'GET_DATA', payload: 123})
+        onIncrement: () => action('INCREMENT'),
+        onDecrement: () => action('DECREMENT'),
+        onIncrementAsync: () => action('INCREMENT_ASYNC')
     }
 }
-const Top = connect(mapStateToProps, mapDispatchToProps)((props) => {
-    return <div>
-        <h3 onClick={() => {
-            props.add()
-        }}>add</h3>
-    </div>
-})
+const Counter = connect(mapStateToProps, mapDispatchToProps)(CounterCom)
