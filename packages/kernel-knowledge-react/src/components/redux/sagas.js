@@ -12,7 +12,7 @@ function* incrementAsync() {
 }
 
 function* watchIncrementAsync() {
-  yield takeMaybe('INCREMENT_ASYNC', incrementAsync)
+  yield takeLeading('INCREMENT_ASYNC', incrementAsync)
 }
 
 // notice how we now only export the rootSaga

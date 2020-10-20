@@ -14,7 +14,8 @@ import './App.css';
 // import ReduxDemo from './components/redux/ReduxDemo'
 // import ReduxReactDemo from './components/redux/ReduxReactDemo'
 // import TodoListDemo from './components/redux/TodoListDemo'
-import SagaReduxDemo from './components/redux/SagaReduxDemo'
+// import SagaReduxDemo from './components/redux/SagaReduxDemo'
+import QuickStartDemo from './components/router/QuickStartDemo'
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       {/* <ReduxDemo></ReduxDemo> */}
       {/* <ReduxReactDemo></ReduxReactDemo> */}
       {/* <TodoListDemo></TodoListDemo> */}
-      <SagaReduxDemo></SagaReduxDemo>
+      {/* <SagaReduxDemo></SagaReduxDemo> */}
+      <QuickStartDemo></QuickStartDemo>
     </div>
   );
 }
