@@ -7,7 +7,7 @@ import './App.css';
 // import LifeCycleDemo from './components/main-concepts/LifeCycleDemo'
 // import Uncontrolled from './components/advanced/UncontrolledDemo'
 // import ContextDemo from './components/advanced/ContextDemo'
-// import ProtalsDemo from './components/advanced/PortalsDemo'
+import ProtalsDemo from './components/advanced/PortalsDemo'
 // import AsyncDemo from './components/advanced/AsyncDemo'
 // import ModifyDemo from './components/advanced/ModifyDemo'
 // import HocDemo from './components/advanced/HocDemo'
@@ -15,7 +15,7 @@ import './App.css';
 // import ReduxReactDemo from './components/redux/ReduxReactDemo'
 // import TodoListDemo from './components/redux/TodoListDemo'
 // import SagaReduxDemo from './components/redux/SagaReduxDemo'
-import QuickStartDemo from './components/router/QuickStartDemo'
+// import QuickStartDemo from './components/router/QuickStartDemo'
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
       {/* <LifeCycleDemo></LifeCycleDemo> */}
       {/* <Uncontrolled></Uncontrolled> */}
       {/* <ContextDemo></ContextDemo> */}
-      {/* <ProtalsDemo></ProtalsDemo> */}
+      <ProtalsDemo></ProtalsDemo>
       {/* <AsyncDemo></AsyncDemo> */}
       {/* <ModifyDemo></ModifyDemo> */}
       {/* <HocDemo></HocDemo> */}
@@ -34,7 +34,7 @@ function App() {
       {/* <ReduxReactDemo></ReduxReactDemo> */}
       {/* <TodoListDemo></TodoListDemo> */}
       {/* <SagaReduxDemo></SagaReduxDemo> */}
-      <QuickStartDemo></QuickStartDemo>
+      {/* <QuickStartDemo></QuickStartDemo> */}
     </div>
   );
 }
