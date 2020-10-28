@@ -1,43 +1,50 @@
-import React from 'react'
+import React from "react";
 
 export default class extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      count: 0
-    }
+      count: 0,
+      list: []
+    };
   }
   // componentDidMount() {
   //   this.setState({count})
   // }
   handleCount = () => {
-    this.setState({count: this.state.count + 1})
-    console.log(this.state.count)
-    this.setState({count: this.state.count + 1})
-    console.log(this.state.count)
-  }
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+  };
 
   handleCount = () => {
-    this.setState({
-      count: this.state.count + 1
-    }, () => {
-      console.log(this.state.count)
-    })
-  }
+    this.setState(
+      {
+        count: this.state.count + 1,
+      },
+      () => {
+        console.log(this.state.count);
+      }
+    );
+  };
 
   handleCount = () => {
     this.setState((state) => {
-      return {count: state.count + 1}
-    })
-    console.log(this.state.count)
-    this.setState((state, a, b) => {
-      console.log(a, b)
-      return {count: state.count + 1}
-    }, (a,b,c) => {
-      console.log(this.state.count, 'second params')
-    })
-    console.log(this.state.count)
-  }
+      return { count: state.count + 1 };
+    });
+    console.log(this.state.count);
+    this.setState(
+      (state, a, b) => {
+        console.log(a, b);
+        return { count: state.count + 1 };
+      },
+      (a, b, c) => {
+        console.log(this.state.count, "second params");
+      }
+    );
+    console.log(this.state.count);
+  };
 
   handleCount = () => {
     this.setState({count: 1})
@@ -54,15 +61,108 @@ export default class extends React.Component {
     setTimeout(() => {
       this.setState({count: this.state.count + 1})
     })
+  };
+
+  handleCount = () => {
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+
+    this.setState({ count: this.state.count + 1 });
+    console.log(this.state.count);
+
+    setTimeout(() => {
+      console.log(this.state.count);
+      this.setState({ count: this.state.count + 1 });
+      console.log(this.state.count);
+
+      this.setState({ count: this.state.count + 1 });
+      console.log(this.state.count);
+    }, 0);
+
+    console.log(this.state.count, 'end');
   }
-  render () {
+
+
+  handleCount = () => {
+    this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count)})
+    console.log(this.state.count)
+    
+    this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count)})
+    console.log(this.state.count)
+    
+    this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count)})
+    console.log(this.state.count, 'end')
+  }
+
+  handleCount = () => {
+    // this.setState({ count: this.state.count + 1000 });
+    // console.log(this.state.count);
+
+    // this.setState({ count: this.state.count + 2 });
+    // console.log(this.state.count);
+
+    // this.setState({ count: this.state.count + 1 });
+    // console.log(this.state.count);
+
+    // setTimeout(() => {
+    //   console.log(this.state.count);
+    //   this.setState({ count: this.state.count + 1 });
+    //   console.log(this.state.count);
+
+    //   this.setState({ count: this.state.count + 1 });
+    //   console.log(this.state.count);
+    // }, 0);
+    Promise.resolve().then(() => {
+      console.log(this.state.count);
+      this.setState({ count: this.state.count + 1 });
+      console.log(this.state.count);
+      debugger
+      this.setState({ count: this.state.count + 1 });
+      console.log(this.state.count);
+    })
+
+    // console.log(this.state.count, 'end1');
+
+    // this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count, '1')})
+    // console.log(this.state.count)
+    
+    // this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count, '2')})
+    // console.log(this.state.count)
+    
+    // this.setState(state => ({count: state.count + 1}), () => {console.log(this.state.count, '3')})
+    // console.log(this.state.count, 'end2')
+  }
+
+  // handleCount = () => {
+  //   // this.state.list.push(Math.random())
+  //   // this.setState({list: this.state.list})
+
+  //   this.setState({list: this.state.list.concat(Math.random())})
+  // }
+
+  // shouldComponentUpdate(nextProps, nexState) {
+  //   return nexState.list !== this.state.list
+  // }
+
+  render() {
+    console.log('render')
     return (
       <>
         <h1>state setState</h1>
         <h2>{this.state.count}</h2>
         <p onClick={this.handleCount}>setState combine</p>
+        <ul>
+          {
+            this.state.list.map((item, index) => {
+            return <li key={index}>{item}</li>
+            })
+          }
+        </ul>
       </>
-    )
+    );
   }
 }
 
