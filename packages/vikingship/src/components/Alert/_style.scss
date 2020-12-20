@@ -1,0 +1,42 @@
+.alert {
+    padding: 10px;
+    width: 400px;
+    border-radius: $border-radius;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    font-size: $font-size-base;
+    .title {
+        display: flex;
+        align-items: center;
+        & > *:first-child {
+            flex: 1
+        }
+        .close {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: $white;
+            cursor: pointer;
+        }
+    }
+}
+
+.alert-default {
+    background-color: $primary;
+}
+
+.alert-success {
+    background-color: $success;
+}
+
+.alert-danger {
+    background-color: $danger;
+}
+
+.alert-warning {
+    background-color: $warning;
+}
