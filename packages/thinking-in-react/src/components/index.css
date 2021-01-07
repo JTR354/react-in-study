@@ -1,0 +1,26 @@
+.account-no {
+  color: red;
+  display: flex;
+}
+
+.account-label {
+  padding-right: 1em;
+}
+
+.account-input {
+  width: 4.1em;
+  margin-right: 1em;
+}
+
+.account-input > input {
+  width: inherit;
+  text-align: center;
+}
+
+.account-select {
+  position: relative;
+}
+
+.account-select select {
+  position: absolute;
+}
