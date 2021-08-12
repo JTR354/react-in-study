@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import FilterableCategoryRow from './pages/FilterableProductTable'
-import EventDemo from './pages/EventDemo/EventDemo'
-import Account from './components/index.jsx'
+// import FilterableCategoryRow from './pages/FilterableProductTable'
+// import EventDemo from './pages/EventDemo/EventDemo'
+// import Account from './components/index.jsx'
+import Select from './components/select'
+import Basic from './components/basic'
 /*
 function App() {
   return (
@@ -64,7 +66,8 @@ function App () {
   }, [])
   return (
     <div style={{margin: '50px auto', width: '50%'}}>
-      <form ref={formRef} onSubmit={handleSubmit}>
+      <Basic></Basic>
+      {/* <form ref={formRef} onSubmit={handleSubmit}>
         <Account onSelect={handleSelect}>
           <Account.Label>Account NO</Account.Label>
           <Account.Input maxLength="2" name="a"></Account.Input>
@@ -77,7 +80,8 @@ function App () {
           </Account.Select>
         </Account>
         <button type="submit">submit</button>
-      </form>
+      </form> */}
+      {/* <Select />   */}
       {/* <FilterableCategoryRow products={productions}></FilterableCategoryRow>
       <EventDemo></EventDemo> */}
     </div>

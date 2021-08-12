@@ -1,0 +1,16 @@
+.select-wrapper {
+  /* width: 200px; */
+  height: 44px;
+}
+
+.select-wrapper select {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-weight: bold;
+  font-size: 1.2em;
+  appearance: none;
+  text-indent: 1em;
+  overflow-x: scroll;
+  overflow-wrap: break-word;
+}
